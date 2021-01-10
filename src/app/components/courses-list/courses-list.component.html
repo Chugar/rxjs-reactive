@@ -1,0 +1,9 @@
+
+<app-loading></app-loading>
+<div *ngFor="let course of (courses$ | async)">
+
+  <button (click)="editCourse(course)" >Edit</button>
+</div>
+
+
+<app-courses-save></app-courses-save>

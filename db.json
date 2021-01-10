@@ -1,0 +1,45 @@
+{
+  "courses": [
+    {
+      "title": "insane",
+      "author": "braine",
+      "content": "decades ago",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "ngrx",
+      "author": "chugar",
+      "content": "",
+      "picture": ""
+    },
+    {
+      "id": 3,
+      "title": "angular is pure dope",
+      "author": "chugar",
+      "content": "",
+      "picture": ""
+    },
+    {
+      "id": 4,
+      "title": "how to avoid null pointer",
+      "author": "java techie",
+      "content": "dont be so wa3er homie",
+      "picture": ""
+    }
+  ],
+  "books": [
+    {
+      "title": "you can function"
+    },
+    {
+      "title": "whats wrong"
+    },
+    {
+      "title": "seeks to change"
+    },
+    {
+      "title": "dix picks"
+    }
+  ]
+}
