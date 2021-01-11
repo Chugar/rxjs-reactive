@@ -1,7 +1,7 @@
 import { Url } from "url";
 
 export interface Course {
-    id: number;
+  id: string;
   title: string;
   author: string;
   content: string;

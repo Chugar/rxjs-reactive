@@ -1,24 +1,22 @@
 {
   "courses": [
     {
-      "title": "insane",
-      "author": "braine",
-      "content": "decades ago",
+      "title": "vida",
+      "author": "loca",
+      "content": "this is some content",
       "id": 1
     },
     {
-      "id": 2,
-      "title": "ngrx",
-      "author": "chugar",
-      "content": "",
-      "picture": ""
+      "title": "je tai",
+      "author": "rea",
+      "content": "lole",
+      "id": 2
     },
     {
-      "id": 3,
-      "title": "angular is pure dope",
-      "author": "chugar",
+      "title": "",
+      "author": "",
       "content": "",
-      "picture": ""
+      "id": 3
     },
     {
       "id": 4,

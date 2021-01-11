@@ -1,3 +1,4 @@
+import { MatDialogRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { LoadingComponent } from './components/loading/loading.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,12 +12,13 @@ import { MaterialModule } from './material.module';
 import { CoursesSaveComponent } from './components/courses-save/courses-save.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     CoursesListComponent,
     LoadingComponent,
-    CoursesSaveComponent
+    CoursesSaveComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -27,7 +29,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MaterialModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
