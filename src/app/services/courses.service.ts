@@ -1,4 +1,4 @@
-import { delay } from 'rxjs/operators';
+import { delay, shareReplay } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -20,7 +20,8 @@ export class CoursesService {
   public getCourses(): Observable<any> {
     return this._http.get(this.coursesUrl)
     .pipe(
-      delay(2500)
+      delay(2500),
+      shareReplay()
     );
   }
 

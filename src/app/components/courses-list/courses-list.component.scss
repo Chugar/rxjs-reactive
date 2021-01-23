@@ -1,0 +1,24 @@
+mat-card {
+  width: 35%;
+  background-color: #fff;
+  color: #000000;
+  margin: 34px auto;
+
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 55%;
+    }
+  }
+
+  mat-card-header {
+    h2 {
+      width: 100%;
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: 400;
+    }
+  }
+}

@@ -1,29 +1,28 @@
 {
   "courses": [
     {
-      "title": "vida",
+      "title": "La vida sans but déterminé",
       "author": "loca",
       "content": "this is some content",
       "id": 1
     },
     {
-      "title": "je tai",
+      "title": "Je l'ai déja pensé nullement",
       "author": "rea",
       "content": "lole",
       "id": 2
     },
     {
-      "title": "",
-      "author": "",
-      "content": "",
+      "title": "brand new trial",
+      "author": "dollars",
+      "content": "content",
       "id": 3
     },
     {
-      "id": 4,
-      "title": "how to avoid null pointer",
+      "title": "how to avoid null",
       "author": "java techie",
       "content": "dont be so wa3er homie",
-      "picture": ""
+      "id": 4
     }
   ],
   "books": [

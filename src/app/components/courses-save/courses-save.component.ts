@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Course } from './../../models/course.model';
 import { CoursesService } from './../../services/courses.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class CoursesSaveComponent implements OnInit {
 
   constructor(
     private _loading: LoadingService,
+    private _router: Router,
     private _fb: FormBuilder,
     private _courses: CoursesService,
     @Inject(MAT_DIALOG_DATA) public data: Course,
@@ -40,9 +42,11 @@ export class CoursesSaveComponent implements OnInit {
 
     this._loading.showLoadingUntilComplete(
       this._courses.saveCourse(this.data.id, saved)
-    ).subscribe();
+      .pipe(delay(500))
+    ).subscribe( res => {
+      this.dialogRef.close(res);
+    });
 
-    this.dialogRef.close(saved);
   }
 
 }

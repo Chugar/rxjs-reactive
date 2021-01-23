@@ -5,5 +5,5 @@ export interface Course {
   title: string;
   author: string;
   content: string;
-  picture: Url;
+  imageSource: string;
 }
