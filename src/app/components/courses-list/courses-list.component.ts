@@ -1,45 +1,42 @@
-import { ErrorService } from './../../services/error.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { catchError } from 'rxjs/operators';
+import { ErrorService } from './../../feedback/error/error.service';
+import { LoadingService } from 'src/app/feedback/loading/loading.service';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable, throwError } from 'rxjs';
 import { Course } from './../../models/course.model';
 import { CoursesService } from './../../services/courses.service';
-import { LoadingService } from './../../services/loading.service';
+import { CoursesStore } from './../../services/courses.store';
 import { CoursesSaveComponent } from './../courses-save/courses-save.component';
-import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-courses-list',
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.scss'],
-  providers: [LoadingService, ErrorService],
+  providers: [LoadingService, ErrorService]
 })
 export class CoursesListComponent implements OnInit {
 
-  public courses$: Observable<Course>;
+  public courses$: Observable<Course[]>;
   public imgDefaultSource = 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png';
 
   constructor(
+    private _courseStore: CoursesStore,
     private _courses: CoursesService,
-    private _loading: LoadingService,
+    private _loader: LoadingService,
     private _error: ErrorService,
-    public _dialog: MatDialog
+    public _dialog: MatDialog,
+
   ) { }
 
   ngOnInit(): void {
     this.getAllCourses();
   }
 
+
   public getAllCourses() {
-    this.courses$ = this._loading
-      .showLoadingUntilComplete(this._courses.getCourses())
-      .pipe(
-        catchError(error => {
-          this._error.errorOut("Error occured while trying to get courses")
-          return throwError(error);
-        })
-      );
+    // Stateful approach
+    this.courses$ = this._courseStore.course$;
   }
 
 
@@ -52,9 +49,7 @@ export class CoursesListComponent implements OnInit {
       res => {
         if(res)
           this.getAllCourses();
-      }
-    )
-
+    });
   }
 
 }

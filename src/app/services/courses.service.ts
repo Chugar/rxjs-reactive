@@ -1,3 +1,5 @@
+import { ErrorService } from '../feedback/error/error.service';
+import { LoadingService } from '../feedback/loading/loading.service';
 import { delay, shareReplay } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -18,19 +20,19 @@ export class CoursesService {
 
 
   public getCourses(): Observable<any> {
-    return this._http.get(this.coursesUrl)
-    .pipe(
+
+    return this._http.get(this.coursesUrl).pipe(
       delay(2500),
       shareReplay()
     );
   }
 
   public saveCourse(courseId: string, course: Partial<Course>) {
-    return this._http.put(`${this.coursesUrl}/${courseId}`, course);
+    const $savedCourses = this._http.put(`${this.coursesUrl}/${courseId}`, course).pipe(
+      delay(1000)
+    );
+
+    return $savedCourses;
   }
-
-
-
-
 
 }

@@ -1,5 +1,6 @@
+import { CoursesStore } from './../../services/courses.store';
 import { delay } from 'rxjs/operators';
-import { LoadingService } from './../../services/loading.service';
+import { LoadingService } from '../../feedback/loading/loading.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -21,12 +22,13 @@ export class CoursesSaveComponent implements OnInit {
 
   constructor(
     private _loading: LoadingService,
-    private _router: Router,
     private _fb: FormBuilder,
     private _courses: CoursesService,
+    private _store: CoursesStore,
     @Inject(MAT_DIALOG_DATA) public data: Course,
     public dialogRef: MatDialogRef<CoursesSaveComponent, any>
   ) { }
+
 
   ngOnInit(): void {
     this.courseForm = this._fb.group({
@@ -40,13 +42,11 @@ export class CoursesSaveComponent implements OnInit {
   handleSubmit() {
     const saved = this.courseForm.value as Partial<Course>;
 
-    this._loading.showLoadingUntilComplete(
-      this._courses.saveCourse(this.data.id, saved)
-      .pipe(delay(500))
-    ).subscribe( res => {
-      this.dialogRef.close(res);
-    });
-
+    this._store.saveCourse(this.data.id, saved).subscribe(
+      (res) => {
+       this.dialogRef.close(res);
+      }
+    );
   }
 
 }

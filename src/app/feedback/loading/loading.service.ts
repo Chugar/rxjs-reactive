@@ -11,16 +11,14 @@ export class LoadingService {
   constructor() { }
 
   private startLoading() {
-    console.log("start loading");
     this.loaderSubject.next(true);
   }
 
   private stopLoading() {
-    console.log("stopped loading");
     this.loaderSubject.next(false);
   }
 
-  public showLoadingUntilComplete(input: Observable<any>) {
+  public loadUntilComplete(input: Observable<any>) {
     return of(null).pipe(
       tap(() => this.startLoading()),
       switchMap(() => input),

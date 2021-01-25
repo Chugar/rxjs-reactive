@@ -1,4 +1,4 @@
-import { ErrorService } from './../../services/error.service';
+import { ErrorService } from './error.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
