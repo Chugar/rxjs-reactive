@@ -1,0 +1,29 @@
+<section>
+  <form (ngSubmit)="handleSubmit()" [formGroup]="signInForm">
+
+    <mat-form-field appearance="outline">
+      <mat-label for="username">Username</mat-label>
+      <input matInput type="text" formControlName="username" name="username"/>
+
+      <!-- username Errors -->
+      <mat-error *ngIf="signInForm.controls.username.hasError('required')">Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="password">password</mat-label>
+      <input matInput [type]="passwordHide ? 'password' :'text' " formControlName="password" name="password"/>
+
+      <!-- Visual indicator -->
+      <button mat-icon-button matSuffix (click)="passwordHide = !passwordHide">
+        <mat-icon> {{ passwordHide ? 'visibility':'visibility_off' }} </mat-icon>
+      </button>
+
+      <!-- password Errors -->
+      <mat-error *ngIf="signInForm.controls.password.hasError('required')">Required</mat-error>
+    </mat-form-field>
+
+    <div>
+      <button mat-button type="submit">Envoyer</button>
+    </div>
+  </form>
+</section>

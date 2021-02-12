@@ -1,6 +1,7 @@
+import { TokenInterceptService } from './services/token-intercept.service';
 import { ErrorService } from './feedback/error/error.service';
 import { LoadingService } from './feedback/loading/loading.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +14,7 @@ import { ErrorComponent } from './feedback/error/error.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from './material.module';
 import { FeedbackModule } from './feedback/feedback.module';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 
 
@@ -22,6 +24,7 @@ import { FeedbackModule } from './feedback/feedback.module';
     CoursesListComponent,
     CoursesSaveComponent,
     NavbarComponent,
+    SignInComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -34,9 +37,10 @@ import { FeedbackModule } from './feedback/feedback.module';
     FeedbackModule,
   ],
   bootstrap: [AppComponent],
-  // providers: [
-  //   LoadingService,
-  //   ErrorService
-  // ]
+  providers: [
+    LoadingService,
+    ErrorService,
+    // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptService, multi: true }
+  ],
 })
 export class AppModule { }
