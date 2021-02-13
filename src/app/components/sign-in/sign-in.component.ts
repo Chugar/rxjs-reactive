@@ -1,10 +1,12 @@
+import { AuthService } from './../../services/auth.service';
 import { catchError } from 'rxjs/operators';
 import { AuthStore } from './../../store/auth.store';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Credentials } from 'src/app/models/credentials.model';
 import { throwError } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,7 +20,8 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _authStore: AuthStore
+    private _authStore: AuthStore,
+    private _authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -36,17 +39,14 @@ export class SignInComponent implements OnInit {
   public handleSubmit() {
 
     const userCredentials = this.signInForm.value as Credentials;
-    this._authStore.attemptAuthentication(userCredentials)
-    .pipe(
-      catchError( (err: HttpErrorResponse ) => {
-        return throwError(err);
-      })
-    )
-    .subscribe(
-      (res) => {
-        console.log(res);
+
+    this._authStore.attemptAuthentication(userCredentials).subscribe(
+      (res:HttpResponse<User>) => {
+        if (res.status === 200) {
+          // TODO: redirect to home + show success popup
+        }
       }
-    )
+    );
 
   }
 }

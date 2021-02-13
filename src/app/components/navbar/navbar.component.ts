@@ -1,3 +1,5 @@
+import { AuthService } from './../../services/auth.service';
+import { AuthStore } from './../../store/auth.store';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public _authStore: AuthStore,
+    public _authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  public logout() {
+    this._authStore.logout();
   }
 
 }

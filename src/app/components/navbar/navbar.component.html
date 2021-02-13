@@ -11,12 +11,12 @@
   </div>
 
   <div class="right-menu">
-    <button mat-icon-button routerLink="/sign-in">
-      <mat-icon>person</mat-icon>
+    <button mat-icon-button *ngIf="_authStore.isLoggedOut$ | async" routerLink="/sign-in">
+      <mat-icon>account_circle</mat-icon>
     </button>
 
-    <button mat-icon-button>
-      <mat-icon>arrow_right</mat-icon>
+    <button mat-icon-button *ngIf="_authStore.isLoggedIn$ | async" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
     </button>
   </div>
 
