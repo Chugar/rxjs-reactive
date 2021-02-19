@@ -15,6 +15,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from './material.module';
 import { FeedbackModule } from './feedback/feedback.module';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { CoursesSearchComponent } from './components/courses-search/courses-search.component';
 
 
 
@@ -25,6 +26,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     CoursesSaveComponent,
     NavbarComponent,
     SignInComponent,
+    CoursesSearchComponent,
   ],
   imports: [
     AppRoutingModule,

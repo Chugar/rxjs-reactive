@@ -1,0 +1,40 @@
+
+
+<mat-form-field appearance="outline">
+  <mat-label>Rechercher</mat-label>
+  <input matInput type="text" name="seach" #searchInput/>
+  <button style="padding-top: 15px;" mat-icon-button matSuffix (click)="onSearch(searchInput.value)">
+    <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field>
+
+
+
+
+
+<ng-container *ngIf="(searchResult$ | async) as courses">
+
+  <ng-container *ngIf="!activeCourse; else courseDetails">
+    <table>
+      <thead>
+        <th>Title</th>
+        <th>Author</th>
+      </thead>
+
+      <tr *ngFor="let course of courses" (click)="onCourseDetail(course)">
+        <td>{{course.title}}</td>
+        <td>{{course.author}}</td>
+      </tr>
+    </table>
+  </ng-container>
+
+  <ng-template #courseDetails>
+    <div>
+      <button mat-raised-button (click)="back()">
+        <mat-icon>back_arrow_ios</mat-icon>
+      </button>
+      {{activeCourse.title}}
+    </div>
+  </ng-template>
+
+</ng-container>
