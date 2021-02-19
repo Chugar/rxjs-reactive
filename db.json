@@ -33,16 +33,24 @@
   ],
   "books": [
     {
-      "title": "you can function"
+      "id":1,
+      "title": "you can function",
+      "courseId":1
     },
     {
-      "title": "whats wrong"
+      "id":2,
+      "title": "whats wrong",
+      "courseId":1
     },
     {
-      "title": "seeks to change"
+      "id":3,
+      "title": "seeks to change",
+      "courseId":1
     },
     {
-      "title": "dix picks"
+      "id":4,
+      "title": "dix picks",
+      "courseId":2
     }
   ]
 }

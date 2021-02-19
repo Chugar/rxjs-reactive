@@ -16,6 +16,7 @@ import { MaterialModule } from './material.module';
 import { FeedbackModule } from './feedback/feedback.module';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { CoursesSearchComponent } from './components/courses-search/courses-search.component';
+import { CoursesDetailComponent } from './components/courses-detail/courses-detail.component';
 
 
 
@@ -27,6 +28,7 @@ import { CoursesSearchComponent } from './components/courses-search/courses-sear
     NavbarComponent,
     SignInComponent,
     CoursesSearchComponent,
+    CoursesDetailComponent,
   ],
   imports: [
     AppRoutingModule,

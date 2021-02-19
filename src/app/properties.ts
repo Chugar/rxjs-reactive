@@ -5,3 +5,4 @@ export const USER_KEY = 'APP_USER_KEY';
 
 
 export const COURSES_URL = 'http://localhost:3000/courses';
+export const BOOKS_URL = 'http://localhost:3000/books';

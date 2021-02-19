@@ -1,0 +1,8 @@
+<ng-container *ngIf="(courseData$ | async) as courseData">
+
+  {{courseData.course.title}}
+
+  <ul>
+    <li *ngFor="let book of courseData.books"> {{book.title}} </li>
+  </ul>
+</ng-container>

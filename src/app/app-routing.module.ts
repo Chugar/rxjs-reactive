@@ -1,3 +1,4 @@
+import { CoursesDetailComponent } from './components/courses-detail/courses-detail.component';
 import { CoursesSearchComponent } from './components/courses-search/courses-search.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
@@ -8,7 +9,11 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: "courses",
-    component: CoursesListComponent
+    component: CoursesListComponent,
+  },
+  {
+    path: "courses/:id",
+    component: CoursesDetailComponent,
   },
   {
     path: "sign-in",
